@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Race Registration Form</title>
+  </head>
+  <body>
+    <h1>Race Registration Form</h1>
+    <form>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="title">Title:</label>
+      <select id="title" name="title">
+        <option value="Mr.">Mr.</option>
+        <option value="Ms.">Ms.</option>
+        <option value="Mrs.">Mrs.</option>
+      </select><br><br>
+
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required>
+
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required><br><br>
+
+      <label for="address">Complete Postal Mailing Address:</label> <br>
+      <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="fax">Fax:</label>
+<input type="tel" id="fax" name="fax" pattern="^\d{10}(\(\d{3}\))?$" placeholder="1234567890 or (123)4567890" required><br><br>
+
+      <label for="occupation">Occupation:</label>
+      <input type="text" id="occupation" name="occupation" required>
+
+      <label for="marital-status">Marital Status:</label>
+      <input type="text" id="marital-status" name="marital-status" required><br><br>
+
+      <h2>Emergency Contact</h2>
+      <label for="emergency-name">Name:</label>
+      <input type="text" id="emergency-name" name="emergency-name" required>
+
+      <label for="emergency-email">E-mail:</label>
+      <input type="email" id="emergency-email" name="emergency-email" required>
+
+      <label for="emergency-phone">Phone No:</label>
+      <input type="tel" id="emergency-phone" name="emergency-phone" required><br><br>
+
+      <h2>Select Trip</h2>
+      <label for="trip">Select Trip:</label>
+      <select id="trip" name="trip" required>
+        <option value="Stage Race">Stage Race</option>
+        <option value="Everest Challenge Marathon (4 day trip)">Everest Challenge Marathon (4 day trip)</option>
+        <option value="Mt. Everest Bike Rally">Mt. Everest Bike Rally</option>
+      </select><br><br>
+
+      <label for="activity">I am a:</label>
+      <input type="checkbox" id="runner" name="activity" value="Runner" required>
+      <label for="runner">Runner</label>
+
+      <input type="checkbox" id="walker" name="activity" value="Walker">
+      <label for="walker">Walker</label>
+
+      <input type="checkbox" id="cyclist" name="activity" value="Cyclist">
+      <label for="cyclist">Cyclist</label>
+
+      <br></br>
+
+      <label for="t-shirt-size">T-Shirt Size:</label>
+  <input type="checkbox" id="small" name="t-shirt-size" value="Small" required>
+  <label for="small">Small</label>
+
+  <input type="checkbox" id="medium" name="t-shirt-size" value="Medium">
+  <label for="medium">Medium</label>
+
+  <input type="checkbox" id="large" name="t-shirt-size" value="Large">
+  <label for="large">Large</label>
+
+  <input type="checkbox" id="x-large" name="t-shirt-size" value="X-Large">
+  <label for="x-large">X-Large</label><br><br>
+
+  <label for="smoker">Smoker:</label>
+  <input type="radio" id="smoker" name="smoker" value="Yes">
+  <label for="smoker">Yes</label>
+
+  <input type="radio" id="non-smoker" name="smoker" value="No" >
+  <label for="non-smoker">No</label><br><br>
+
+  <label for="room-sharing">Room Sharing Preference:</label>
+  <input type="text" id="room-sharing" name="room-sharing"><br><br>
+
+  <h2>Passport Details</h2>
+  <label for="passport-name">Exact name as it appears:</label>
+  <input type="text" id="passport-name" name="passport-name" required><br><br>
+
+  <label for="passport-number">Number:</label>
+  <input type="text" id="passport-number" name="passport-number" required>
+<label for="date-issued">Date Issued:</label>
+  <input type="date" id="date-issued" name="date-issued" required>
+
+  <label for="where-issued">Where
+Issued:</label>
+  <input type="text" id="where-issued" name="where-issued" required>
+
+  <label for="date-expires">Date Expires:</label>
+  <input type="date" id="date-expires" name="date-expires" required><br><br>
+
+  <label for="date-of-birth">Date of Birth:</label>
+  <input type="date" id="date-of-birth" name="date-of-birth" required>
+
+  <label for="age">Age:</label>
+  <input type="text" id="age" name="age" required>
+
+  <label for="place-of-birth">Place of Birth:</label>
+  <input type="text" id="place-of-birth" name="place-of-birth" required>
+
+  <label for="citizen-of">Citizen of:</label>
+  <input type="text" id="citizen-of" name="citizen-of" required><br><br>
+
+
+  <a href="lab4.pdf">See Booking Conditions for all the trips</a><br><br>
+
+  <label for="agreement">I agree to all booking terms &amp; conditions:</label>
+  <input type="checkbox" id="agreement" name="agreement" required><br><br>
+  <p>(Please sign printed form before mailing)</p>
+
+  <input type="submit" value="Submit" >
+
+
+</form>
+  </body>
+  <script>
+
+
+  const firstNameInput = document.getElementById("first-name");
+const lastNameInput = document.getElementById("last-name");
+const phoneInput = document.getElementById("phone");
+const ageInput = document.getElementById('age');
+const form = document.querySelector('form');
+
+firstNameInput.addEventListener("input", () => {
+const regex = /^[a-zA-Z]+$/;
+if (!regex.test(firstNameInput.value)) {
+  firstNameInput.setCustomValidity("First name must contain only letters from A-Z.");
+} else {
+  firstNameInput.setCustomValidity("");
+}
+});
+
+lastNameInput.addEventListener("input", () => {
+const regex = /^[a-zA-Z]+$/;
+if (!regex.test(lastNameInput.value)) {
+  lastNameInput.setCustomValidity("Last name must contain only letters from A-Z.");
+} else {
+  lastNameInput.setCustomValidity("");
+}
+});
+
+phoneInput.addEventListener("input", () => {
+const regex = /^8\d{9}$/;
+if (!regex.test(phoneInput.value)) {
+  phoneInput.setCustomValidity("Phone must start with 8 and contain 10 digits.");
+} else {
+  phoneInput.setCustomValidity("");
+}
+});
+
+function validateAge() {
+  const age = parseInt(ageInput.value);
+
+  if (isNaN(age) || age < 1 || age > 70) {
+    alert('Please enter a valid age between 1 and 70');
+    ageInput.value = '';
+  }
+}
+
+ageInput.addEventListener('blur', validateAge);
+
+form.addEventListener('submit', (event) => {
+  const inputs = form.querySelectorAll('input, select, textarea');
+  let isFormValid = true;
+
+  inputs.forEach((input) => {
+    if (input.value.trim() === '') {
+      isFormValid = false;
+    }
+  });
+
+  if (!isFormValid) {
+    event.preventDefault();
+    alert('Please fill out all fields.');
+  } else {
+    alert('Congratulations! You have successfully registered.');
+  }
+});
+
+
+
+  </script>
+</html>
